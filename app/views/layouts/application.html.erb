@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TwitterClone</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<span class="notice"><%= notice %></span>
+<span class="alert"><%= alert %></span>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Twitter Clone</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+     <% if user_signed_in? %>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: 'delete' %></li>
+     <% else %>
+      <li><%= link_to 'Sign In', new_user_session_path %></li>
+     <% end %>
+    </ul>
+  </div>
+</nav>
+<%= yield %>
+
+</body>
+</html>
